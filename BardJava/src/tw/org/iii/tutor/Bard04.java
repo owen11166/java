@@ -1,6 +1,6 @@
 package tw.org.iii.tutor;
 
-public class bard04 {
+public class Bard04 {
 	public static void main(String[] args) {
 		float a=10.123f;
 		double b=10.123;

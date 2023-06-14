@@ -2,6 +2,9 @@ package tw.org.iii.tutor;
 
 public class bard09 {
 	public static void main(String[] args) {
+	
+		
+		
 		int year = 2023;
 		
 		if (year % 4 == 0 ) {
@@ -21,3 +24,4 @@ public class bard09 {
 	}
 
 }
+
