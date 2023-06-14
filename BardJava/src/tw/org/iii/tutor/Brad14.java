@@ -3,7 +3,7 @@ package tw.org.iii.tutor;
 public class Brad14 {
 	public static void main(String[] args) {
 		int[] a = new int[10];
-		System.out.println(a.length);
+		System.out.println(a[9]);
 		int[] b = new int[5];
 		// a[1]=123;
 		// a[0]=763;
@@ -12,7 +12,7 @@ public class Brad14 {
 		}
 		// for each 迴圈
 		for (int c : a) {
-			// System.out.println(c);
+			System.out.println(c);
 		}
 		// int one = 0, two = 0, three = 0, four = 0, five = 0, six = 0;
 
