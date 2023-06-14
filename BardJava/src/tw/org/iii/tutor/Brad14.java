@@ -12,7 +12,7 @@ public class Brad14 {
 		}
 		// for each 迴圈
 		for (int c : a) {
-			//System.out.println(c);
+			// System.out.println(c);
 		}
 		// int one = 0, two = 0, three = 0, four = 0, five = 0, six = 0;
 
@@ -23,13 +23,14 @@ public class Brad14 {
 		/////////////////////////////////// 骰子問題
 		for (int i = 0; i <= 100; i++) {
 			int c = (int) (Math.random() * 6) + 1;
-			//System.out.println(c);
+			// System.out.println(c);
 			number[c] += 1;
 		}
 		/*
 		 * for (int c : number) { System.out.printf("%d 點出現 %d 次", d, c); d += 1; }
 		 */
 		for (int i = 1; i <= 6; i++) {
+			System.out.println();
 			System.out.printf("%d點出現%d次\t", i, number[i]);
 		}
 		/////////////////////////////////////
