@@ -30,8 +30,8 @@ public class Brad14 {
 		 * for (int c : number) { System.out.printf("%d 點出現 %d 次", d, c); d += 1; }
 		 */
 		for (int i = 1; i <= 6; i++) {
-			System.out.println();
-			System.out.printf("%d點出現%d次\t", i, number[i]);
+			//System.out.println();
+			System.out.printf("%d點出現%d次\t\n", i, number[i]);
 		}
 		/////////////////////////////////////
 
