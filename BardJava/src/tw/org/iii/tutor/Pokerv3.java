@@ -2,6 +2,7 @@ package tw.org.iii.tutor;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 
 public class Pokerv3 {
 
@@ -10,7 +11,7 @@ public class Pokerv3 {
 		int[] poker = new int[num];
 		for (int i = 0; i < poker.length; i++)
 			poker[i] = i;
-
+		/*
 		for (int i = num - 1; i > 0; i--) {
 			int rand = (int) (Math.random() * (i + 1));
 			// poker[rand] <=> poker[i]
@@ -18,7 +19,7 @@ public class Pokerv3 {
 			poker[rand] = poker[i];// poker[5]=poke[]r
 			poker[i] = temp;
 		}
-
+		*/
 		for (int v : poker)
 			System.out.println(v);
 		System.out.println(Arrays.toString(poker));
@@ -36,7 +37,17 @@ public class Pokerv3 {
 
 		}
 		System.out.println(Arrays.toString(change));
-
+		///----------自動分配尚未完成
+		for(int i=num-1;i>0;i--) {
+			int rand =(int)(Math.random()*(i+1));
+			String temp=change[rand];
+			change[rand]=change[i];
+			change[i]=temp;
+			
+			
+			
+			
+		}
 		// ---------------------------------
 
 		// ------------------------------
