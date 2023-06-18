@@ -10,6 +10,7 @@ public class TWId {
 	// 隨機給
 	public TWId() {
 		createNumber(isMale, area);
+		
 	};
 
 	// 性別
