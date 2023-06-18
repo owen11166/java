@@ -1,8 +1,10 @@
 package tw.org.iii.classes;
 
 public class TWId {
+
 	private String id;
 	boolean isMale = false;
+	private static String letters = "ABCDEFGHJKLMNPQRSTUVXYWZIO";
 	int area = 10;
 
 	// 隨機給
@@ -37,38 +39,27 @@ public class TWId {
 	}
 
 	public void createNumber(boolean isMale, int area) {
-		String letters = "ABCDEFGHJKLMNPQRSTUVXYWZIO";
-		int male=(isMale==true?1:2);
-		int a1=area/10;
-		int a2=area%10;
-		boolean cycle=true;
-		int total=0;
-		int a12=a1*1+a2*9;
-		while(cycle) {
-			total=0;
-			id="";
-			id+=letters.charAt(area-10);
-			id+=male;
-			total+=a12;
-			total+=male*8;
-			for(int i=7;i>=1;i--) {
-				int random=(int)(Math.random()*10);
-				total+=i*random;
-				String num=Integer.toString(random);
-				 id+=num;
+		int male = (isMale == true ? 1 : 2);
+		do {
+			id = "";
+			id += letters.charAt(area - 10);
+			id += male;
+			for (int i = 7; i >= 1; i--) {
+				int random = (int) (Math.random() * 10);
+				String num = Integer.toString(random);
+				id += num;
 			}
-			int last=(int)(Math.random()*10);
-			id+=last;
-			total+=last;
-			cycle=total%10==0?false:true;
-		}
-			
+			int last = (int) (Math.random() * 10);
+			id += last;
+
+		} while (!isRightId(id));
+
 	}
 
 	public static boolean isRightId(String id) {
 
 		boolean isRight = false;
-		String letters = "ABCDEFGHJKLMNPQRSTUVXYWZIO";
+		// String letters = "ABCDEFGHJKLMNPQRSTUVXYWZIO";
 		// String num = "0123456789";
 		int ans = 0;
 		int j = 8;
@@ -89,9 +80,11 @@ public class TWId {
 				ans += first * j;
 				j--;
 			}
-			
-			  if (ans % 10 == 0) { isRight = true; }
-			 
+
+			if (ans % 10 == 0) {
+				isRight = true;
+			}
+
 		}
 		return isRight;
 	}
