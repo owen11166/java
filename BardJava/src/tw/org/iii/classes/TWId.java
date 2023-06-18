@@ -1,10 +1,75 @@
 package tw.org.iii.classes;
 
 public class TWId {
+	private String id;
+	boolean isMale = false;
+	int area = 10;
+
+	// 隨機給
+	public TWId() {
+		createNumber(isMale, area);
+	};
+
+	// 性別
+	public TWId(boolean isMale) {
+
+		createNumber(isMale, area);
+	};
+
+	// 地區
+	public TWId(int area) {
+
+		createNumber(isMale, area);
+	};
+
+	// 性別地區
+	public TWId(boolean isMale, int area) {
+
+		createNumber(isMale, area);
+	};
+
+	private TWId(String id) {
+		this.id = id;
+	}
+
+	public String getId() {
+		return id;
+	}
+
+	public void createNumber(boolean isMale, int area) {
+		String letters = "ABCDEFGHJKLMNPQRSTUVXYWZIO";
+		int male=(isMale==true?1:2);
+		int a1=area/10;
+		int a2=area%10;
+		boolean cycle=true;
+		int total=0;
+		int a12=a1*1+a2*9;
+		while(cycle) {
+			total=0;
+			id="";
+			id+=letters.charAt(area-10);
+			id+=male;
+			total+=a12;
+			total+=male*8;
+			for(int i=7;i>=1;i--) {
+				int random=(int)(Math.random()*10);
+				total+=i*random;
+				String num=Integer.toString(random);
+				 id+=num;
+			}
+			int last=(int)(Math.random()*10);
+			id+=last;
+			total+=last;
+			cycle=total%10==0?false:true;
+		}
+			
+	}
+
 	public static boolean isRightId(String id) {
+
 		boolean isRight = false;
 		String letters = "ABCDEFGHJKLMNPQRSTUVXYWZIO";
-		//String num = "0123456789";
+		// String num = "0123456789";
 		int ans = 0;
 		int j = 8;
 		if (id.matches("[A-Z][1,2][0-9]{8}")) {
@@ -12,27 +77,23 @@ public class TWId {
 			int n12 = letters.indexOf(c1) + 10;
 			int f1 = n12 / 10;
 			int f2 = n12 % 10;
-			//int last = num.indexOf(id.charAt(9));
-			int last=Integer.parseInt(id.substring(9,10));
-			ans += f1+f2*9+last;
+			// int last = num.indexOf(id.charAt(9));
+			int last = Integer.parseInt(id.substring(9, 10));
+			ans += f1 + f2 * 9 + last;
 			/*
+			 * for (int i = 1; i < 9; i++) { int first = num.indexOf(id.charAt(i)); ans +=
+			 * first * j; j--; }
+			 */
 			for (int i = 1; i < 9; i++) {
-				int first = num.indexOf(id.charAt(i));
+				int first = Integer.parseInt(id.substring(i, i + 1));
 				ans += first * j;
 				j--;
 			}
-			*/
-			for(int i=1;i<9;i++) {
-				int first=Integer.parseInt(id.substring(i,i+1));
-				ans+=first*j;
-				j--;
-			}
-			/*
-			if (ans % 10 == 0) {
-				isRight = true;
-			}
-			*/
+			
+			  if (ans % 10 == 0) { isRight = true; }
+			 
 		}
-		return ans%10==0;
+		return isRight;
 	}
+
 }
