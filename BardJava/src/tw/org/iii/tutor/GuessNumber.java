@@ -11,6 +11,7 @@ public class GuessNumber extends JFrame implements ActionListener {
 	private JTextField input;
 	private JTextArea log;
 	private String answer;
+	private int counter;
 
 	public GuessNumber() {
 		super("猜數字遊戲");
@@ -43,15 +44,32 @@ public class GuessNumber extends JFrame implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		counter++;
 		String gus = input.getText();
-		String result=checkAB(gus);
-		log.append(gus+"=>"+result+"\n");
-		
-		
+		String result = checkAB(gus);
+		log.append(counter + "." + gus + "=>" + result + "\n");
+		if (result.equalsIgnoreCase("3A0B")) {
+			JOptionPane.showMessageDialog(guess, "WIN");
+		} else if (counter == 3) {
+			JOptionPane.showMessageDialog(guess, "LOSER  ANSWER=" + answer);
+		}
+
 	}
+
 	private String checkAB(String g) {
-		return "1";
+		int a, b;
+		a = b = 0;
+		for (int i = 0; i < answer.length(); i++) {
+			if (answer.charAt(i) == g.charAt(i)) {
+				a++;
+			} else if (answer.indexOf(g.charAt(i)) >= 0) {
+				b++;
+			}
+		}
+
+		return String.format("%dA%dB", a, b);
 	};
+
 	private void createNumber(int dig) {
 		int num = 10;
 		int[] poker = new int[num];
@@ -75,6 +93,8 @@ public class GuessNumber extends JFrame implements ActionListener {
 
 	private void newGame() {
 		createNumber(3);
+		counter = 0;
+		System.out.println(answer);
 
 	}
 
