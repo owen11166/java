@@ -3,7 +3,7 @@ package tw.org.iii.classes;
 public class Bike {
 	protected int speed;
 	protected int color;
-	protected Bike() {
+	public Bike() {
 		
 	}
 	public Bike(int speed,char color) {
