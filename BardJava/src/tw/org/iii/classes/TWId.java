@@ -7,10 +7,13 @@ public class TWId {
 	private static String letters = "ABCDEFGHJKLMNPQRSTUVXYWZIO";
 	int area = 10;
 
+	// StringBuilder 多線程較不安全
+	// StringBuffer  多線程較為安全
+	
 	// 隨機給
 	public TWId() {
 		createNumber(isMale, area);
-		
+
 	};
 
 	// 性別
