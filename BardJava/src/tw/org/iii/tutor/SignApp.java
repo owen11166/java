@@ -22,7 +22,6 @@ public class SignApp extends JFrame {
 		add(top, BorderLayout.NORTH);
 		
 		myDrawer=new MyDrawer();
-		
 		add(myDrawer,BorderLayout.CENTER);
 		
 		setSize(800, 480);
