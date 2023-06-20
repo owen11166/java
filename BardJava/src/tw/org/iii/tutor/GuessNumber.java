@@ -53,7 +53,7 @@ public class GuessNumber extends JFrame implements ActionListener {
 		} else if (counter == 3) {
 			JOptionPane.showMessageDialog(guess, "LOSER  ANSWER=" + answer);
 		}
-
+		input.setText("");
 	}
 
 	private String checkAB(String g) {
@@ -92,7 +92,7 @@ public class GuessNumber extends JFrame implements ActionListener {
 	}
 
 	private void newGame() {
-		createNumber(3);
+		createNumber(4);
 		counter = 0;
 		System.out.println(answer);
 
