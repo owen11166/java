@@ -1,9 +1,21 @@
 package tw.org.iii.tutor;
 
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+
 public class Brad48 {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		String mesg="\n123456";
+		try {
+			FileOutputStream fout = new FileOutputStream("dir1/file3",true);
+			fout.write(mesg.getBytes());
+			fout.flush();
+			fout.close();
+			System.out.println("ok");
+		} catch (Exception e) {
+			System.out.println(e.toString());
+		}
 
 	}
 
