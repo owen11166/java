@@ -6,9 +6,9 @@ import java.io.FileOutputStream;
 public class Brad48 {
 
 	public static void main(String[] args) {
-		String mesg="\n123456";
+		String mesg = "\n123456";
 		try {
-			FileOutputStream fout = new FileOutputStream("dir1/file3",true);
+			FileOutputStream fout = new FileOutputStream("dir1/file3", true);
 			fout.write(mesg.getBytes());
 			fout.flush();
 			fout.close();
