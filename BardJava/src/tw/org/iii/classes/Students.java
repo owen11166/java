@@ -13,13 +13,15 @@ public class Students implements Serializable {
 	private int math, eng, ch;
 	// private Bike bike;
 	private String name;
+	private Bike bike;
 
 	public Students(int math, int eng, int ch, String name) {
 		this.math = math;
 		this.eng = eng;
 		this.ch = ch;
 		this.name = name;
-		// bike=new Bike();
+		bike = new Bike(name);
+
 	}
 
 	public int sum() {
