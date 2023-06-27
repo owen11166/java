@@ -15,6 +15,7 @@ public class Brad37 {
 		list.add(0, 1);
 		System.out.println(list.size());
 		System.out.println(list);
+	
 	}
 
 }
