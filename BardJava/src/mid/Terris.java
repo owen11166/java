@@ -1,7 +1,11 @@
 package mid;
 
+import java.awt.BasicStroke;
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -38,6 +42,7 @@ public class Terris extends JFrame {
 			this.setOpaque(false);
 			this.mainFrame = frame;
 		}
+
 	}
 
 	private void initMenu() {
@@ -101,4 +106,10 @@ public class Terris extends JFrame {
 		});
 	}
 
+	private void drawBorder(Graphics g) {
+		BasicStroke bs = new BasicStroke(12L, BasicStroke.CAP_ROUND, BasicStroke.JOIN_ROUND);
+		Graphics2D g2 = (Graphics2D) g;
+		g2.setColor(Color.RED);
+		g2.setStroke(bs);
+	}
 }
