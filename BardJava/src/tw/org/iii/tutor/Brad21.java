@@ -5,7 +5,7 @@ import tw.org.iii.classes.Scooter;
 
 import javax.swing.*; 
 
-public class Bard21 {
+public class Brad21 {
 
 	public static void main(String[] args) {
 		Bike b1=new Bike(5,'w');

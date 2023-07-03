@@ -1,6 +1,6 @@
 package tw.org.iii.tutor;
 
-public class Bard10 {
+public class Brad10 {
 	public static void main(String[] args) {
 		int a = 10, b = 3;
 		if (a++ <= 10 && b-- >= 3) {

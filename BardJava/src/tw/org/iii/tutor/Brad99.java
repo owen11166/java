@@ -1,6 +1,6 @@
 package tw.org.iii.tutor;
 
-public class Bard99 {
+public class Brad99 {
 	public static void main(String[] args) {
 		for (int a = 1; a < 10; a += 1) {
 			System.out.println();

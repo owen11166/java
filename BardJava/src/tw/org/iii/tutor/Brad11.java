@@ -2,7 +2,7 @@ package tw.org.iii.tutor;
 
 import java.util.Scanner;
 
-public class Bard11 {
+public class Brad11 {
 	public static void main(String[] args) {
 		
 		Scanner scanner=new Scanner(System.in);

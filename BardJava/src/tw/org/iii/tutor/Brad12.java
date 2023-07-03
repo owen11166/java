@@ -1,6 +1,6 @@
 package tw.org.iii.tutor;
 
-public class Bard12 {
+public class Brad12 {
 	public static void main(String[] args) {
 		//for(;;){}
 //		for (int a=0;a<=10;a+=1) {

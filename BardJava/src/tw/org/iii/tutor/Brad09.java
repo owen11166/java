@@ -1,6 +1,6 @@
 package tw.org.iii.tutor;
 
-public class bard09 {
+public class Brad09 {
 	public static void main(String[] args) {
 	
 		

@@ -1,6 +1,6 @@
 package tw.org.iii.tutor;
 
-public class Bard05 {
+public class Brad05 {
 
 public static void main(String[] args) {
 	var a1=5;

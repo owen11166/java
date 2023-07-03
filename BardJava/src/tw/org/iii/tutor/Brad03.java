@@ -2,7 +2,7 @@ package tw.org.iii.tutor;
 
 import java.util.Scanner;
 
-public class Brad3 {
+public class Brad03 {
 	public static void main(String args[]) {
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("two number");

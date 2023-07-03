@@ -5,7 +5,7 @@ import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
 
-public class Bard67 {
+public class Brad67 {
 
 	public static void main(String[] args) {
 

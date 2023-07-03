@@ -1,6 +1,6 @@
 package tw.org.iii.tutor;
 
-public class bard07 {
+public class Brad08 {
 	public static void main(String args[]) {
 		var a = (int) (Math.random() * 101);
 		// int score=30;

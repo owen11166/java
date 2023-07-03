@@ -2,7 +2,7 @@ package tw.org.iii.tutor;
 
 import java.util.Scanner;
 
-public class bard8 {
+public class Brad7 {
 
 	public static void main(String[] args) {
 			

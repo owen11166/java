@@ -5,10 +5,10 @@ import java.awt.FlowLayout;
 import javax.swing.*;
 
 
-public class Bard23 extends JFrame {
+public class Brad17 extends JFrame {
 	private JButton b1, b2, b3;
 
-	public Bard23() {
+	public Brad17() {
 
 		super("視窗");
 		
@@ -25,7 +25,7 @@ public class Bard23 extends JFrame {
 	}
 
 	public static void main(String[] args) {
-		new Bard23();
+		new Brad17();
 	}
 
 }
