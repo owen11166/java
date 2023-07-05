@@ -13,7 +13,7 @@ public class Brad52 {
 			String line;
 			while((line=breader.readLine())!=null) {
 				String[] row=line.split(",");
-				System.out.println(row[2]);
+				System.out.println(row[1]);
 			}
 		} catch (Exception e) {
 			
