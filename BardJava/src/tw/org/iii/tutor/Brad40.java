@@ -7,7 +7,6 @@ public class Brad40 {
 		try {
 			obj1.setLeg(1);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 

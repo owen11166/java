@@ -1,7 +1,6 @@
 package tw.org.iii.tutor;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 
 public class Brad49 {
@@ -20,7 +19,7 @@ public class Brad49 {
 			fout.close();
 			System.out.println(System.currentTimeMillis()-start);
 		} catch (Exception e) {
-
+			System.out.println(e);
 		}
 
 	}

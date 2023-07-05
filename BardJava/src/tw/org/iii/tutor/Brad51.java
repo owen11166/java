@@ -1,6 +1,5 @@
 package tw.org.iii.tutor;
 
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 
 public class Brad51 {
