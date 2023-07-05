@@ -3,6 +3,8 @@ package mid;
 import java.awt.*;
 import java.awt.event.*;
 import java.util.*;
+import javax.swing.Timer;
+
 import javax.swing.*;
 
 public class TicTacToe implements ActionListener {
@@ -13,6 +15,7 @@ public class TicTacToe implements ActionListener {
 	JPanel button_panel = new JPanel();
 	JLabel textfield = new JLabel();
 	JButton[] buttons = new JButton[9];
+	JButton newGameButton = new JButton("New Game");
 	boolean player1_turn;
 
 	TicTacToe() {
@@ -27,8 +30,11 @@ public class TicTacToe implements ActionListener {
 		textfield.setForeground(new Color(25, 255, 0));
 		textfield.setFont(new Font("Ink Free", Font.BOLD, 75));
 		textfield.setHorizontalAlignment(JLabel.CENTER);
-		textfield.setText("OOXX");
+		textfield.setText("Tic-Tac-Toe");
 		textfield.setOpaque(true);
+
+		title_panel.setLayout(new BorderLayout());
+		title_panel.setBounds(0, 0, 800, 100);
 
 		button_panel.setLayout(new GridLayout(3, 3));
 		button_panel.setBackground(new Color(150, 150, 150));
@@ -39,54 +45,150 @@ public class TicTacToe implements ActionListener {
 			buttons[i].setFont(new Font("MV Boli", Font.BOLD, 120));
 			buttons[i].setFocusable(false);
 			buttons[i].addActionListener(this);
+			buttons[i].setBackground(new Color(135 ,206,255));
 		}
-
-		title_panel.setLayout(new BorderLayout());
-		title_panel.setBounds(0, 0, 800, 100);
 
 		title_panel.add(textfield);
 		frame.add(title_panel, BorderLayout.NORTH);
 		frame.add(button_panel);
+		newGameButton.setFont(new Font("Ink Free", Font.BOLD, 30));
+		newGameButton.setFocusable(false);
+		title_panel.add(newGameButton, BorderLayout.SOUTH);
+		newGameButton.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				resetGame();
+			}
+		});
 		firstTurn();
-	}
+	};
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		for(int i=0;i<9;i++) {
-			if(e.getSource()==buttons[i]) {
-				if(player1_turn) {
-					
+
+		for (int i = 0; i < 9; i++) {
+			if (e.getSource() == buttons[i]) {
+				if (player1_turn) {
+					if (buttons[i].getText() == "") {
+						buttons[i].setForeground(new Color(255, 0, 0));
+						buttons[i].setText("X");
+						player1_turn = false;
+						textfield.setText("O turn");
+						check();
+					}
+				} else {
+					if (buttons[i].getText() == "") {
+						buttons[i].setForeground(new Color(0, 0, 255));
+						buttons[i].setText("O");
+						player1_turn = true;
+						textfield.setText("X turn");
+						check();
+					}
 				}
 			}
 		}
-
 	}
 
 	public void firstTurn() {
-		try {
-			Thread.sleep(2000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		Timer timer = new Timer(2000, new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if (random.nextInt(2) == 0) {
+					player1_turn = true;
+					textfield.setText("X's turn");
+				} else {
+					player1_turn = false;
+					textfield.setText("O's turn");
+				}
+				((Timer) e.getSource()).stop(); // 停止计时器
+			}
+		});
+		timer.setRepeats(false); // 只执行一次
+		timer.start(); // 启动计时器
+	}
+
+	public void resetGame() {
+		for (int i = 0; i < 9; i++) {
+			buttons[i].setText("");
+			buttons[i].setEnabled(true);
+			buttons[i].setBackground(new Color(135,206, 255));
+			buttons[i].setFocusable(false);
 		}
-		 if(random.nextInt(2)==0) {
-			 player1_turn=true;
-			 textfield.setText("X turn");
-		 }else {
-			 player1_turn=false;
-			 textfield.setText("O turn");
-		 }
+		firstTurn();
 	}
 
 	public void check() {
-
+		// check X win conditions
+		if ((buttons[0].getText() == "X") && (buttons[1].getText() == "X") && (buttons[2].getText() == "X")) {
+			xWins(0, 1, 2);
+		}
+		if ((buttons[3].getText() == "X") && (buttons[4].getText() == "X") && (buttons[5].getText() == "X")) {
+			xWins(3, 4, 5);
+		}
+		if ((buttons[6].getText() == "X") && (buttons[7].getText() == "X") && (buttons[8].getText() == "X")) {
+			xWins(6, 7, 8);
+		}
+		if ((buttons[0].getText() == "X") && (buttons[3].getText() == "X") && (buttons[6].getText() == "X")) {
+			xWins(0, 3, 6);
+		}
+		if ((buttons[1].getText() == "X") && (buttons[4].getText() == "X") && (buttons[7].getText() == "X")) {
+			xWins(1, 4, 7);
+		}
+		if ((buttons[2].getText() == "X") && (buttons[5].getText() == "X") && (buttons[8].getText() == "X")) {
+			xWins(2, 5, 8);
+		}
+		if ((buttons[0].getText() == "X") && (buttons[4].getText() == "X") && (buttons[8].getText() == "X")) {
+			xWins(0, 4, 8);
+		}
+		if ((buttons[2].getText() == "X") && (buttons[4].getText() == "X") && (buttons[6].getText() == "X")) {
+			xWins(2, 4, 6);
+		}
+		// check O win conditions
+		if ((buttons[0].getText() == "O") && (buttons[1].getText() == "O") && (buttons[2].getText() == "O")) {
+			oWins(0, 1, 2);
+		}
+		if ((buttons[3].getText() == "O") && (buttons[4].getText() == "O") && (buttons[5].getText() == "O")) {
+			oWins(3, 4, 5);
+		}
+		if ((buttons[6].getText() == "O") && (buttons[7].getText() == "O") && (buttons[8].getText() == "O")) {
+			oWins(6, 7, 8);
+		}
+		if ((buttons[0].getText() == "O") && (buttons[3].getText() == "O") && (buttons[6].getText() == "O")) {
+			oWins(0, 3, 6);
+		}
+		if ((buttons[1].getText() == "O") && (buttons[4].getText() == "O") && (buttons[7].getText() == "O")) {
+			oWins(1, 4, 7);
+		}
+		if ((buttons[2].getText() == "O") && (buttons[5].getText() == "O") && (buttons[8].getText() == "O")) {
+			oWins(2, 5, 8);
+		}
+		if ((buttons[0].getText() == "O") && (buttons[4].getText() == "O") && (buttons[8].getText() == "O")) {
+			oWins(0, 4, 8);
+		}
+		if ((buttons[2].getText() == "O") && (buttons[4].getText() == "O") && (buttons[6].getText() == "O")) {
+			oWins(2, 4, 6);
+		}
 	}
 
 	public void xWins(int a, int b, int c) {
+		buttons[a].setBackground(Color.GREEN);
+		buttons[b].setBackground(Color.GREEN);
+		buttons[c].setBackground(Color.GREEN);
 
+		for (int i = 0; i < 9; i++) {
+			buttons[i].setEnabled(false);
+		}
+		textfield.setText("X wins");
 	}
 
 	public void oWins(int a, int b, int c) {
+		buttons[a].setBackground(Color.GREEN);
+		buttons[b].setBackground(Color.GREEN);
+		buttons[c].setBackground(Color.GREEN);
 
+		for (int i = 0; i < 9; i++) {
+			buttons[i].setEnabled(false);
+		}
+		textfield.setText("O wins");
 	}
 }
